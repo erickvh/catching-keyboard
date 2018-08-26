@@ -10,7 +10,7 @@ const std::string &SALT2="_:/_77";
 const std::string &SALT3="line=wowC++";
 
 
-std::string EncryptB64(std::string s);
+std::string EncryptB64(std::string s)
 {
     s=SALT1+s+SALT2+SALT3;
     s=base64_codificado(s);
@@ -27,10 +27,10 @@ std::string EncryptB64(std::string s);
 const std::string &BASE64_CODIGOS="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 std::string base64_codificado(const std::string &s){
-    std:string ret;
+    std::string ret;
     int val=0;
     int bits= -6;
-    const unsigned int b63= 0x3G; //value 63 hexadecimal
+    const unsigned int b63= 0x3F; //value 63 hexadecimal
     for(const auto &c: s)
     {
 
@@ -48,7 +48,7 @@ std::string base64_codificado(const std::string &s){
         ret.push_back(BASE64_CODIGOS[((val<<8)>>(bits+8))&b63]);
 
     while(ret.size()%4){
-        ret,push_back('=')
+        ret.push_back('=');
 
     }
        return ret; //finalmente retorna cadena codificada
